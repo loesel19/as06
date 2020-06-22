@@ -88,8 +88,8 @@
 							</table>
 							<br />
 							<button id="button" type="button" class="btn btn-primary" ng-click="showPayments()">Re-calculate</button>
-							<button id="button" type="button" class="btn btn-success" ng-click="saveLoan()">Save</button>
-							<button id="button" type="button" class="btn btn-secondary" ng-click="loadLoan()">Load</button>
+							<button id="button" type="button" class="btn btn-success" onclick=saveLoan()>Save</button>
+							<button id="button" type="button" class="btn btn-secondary" onclick=loadLoan()>Load</button>
 						</div>
 					</div>
 
@@ -256,7 +256,7 @@ for(var i = 1; i < 6; i++){
 //end for
 var justInt = runningBal - noInt;
 //update form with the interest amount (should be 0)
-$("#loan_int_accrued").text("$" + toComma(parseFloat(justInterest).toFixed(2)));
+$("#loan_int_accrued").text("$" + toComma(parseFloat(justInt).toFixed(2)));
 })
 $("#loan_int01").on("blur" ,function(){
 var runningBal = 0.00;
@@ -361,16 +361,17 @@ var int = temp2 - temp;
 $scope.payments = payments;
 	};
 });
-	function saveLoan(){
+function saveLoan(){
+		console.log("saved");
 	var str = JSON.stringify(loans);
 	localStorage.setItem("savedLoans", str);
 	}
-	function loadLoan(){
-		console.log(loans);
+function loadLoan(){
+		console.log("loaded");
 	loans = JSON.parse(localStorage.getItem("savedLoans"));
-		console.log(loans);
 	loadDoc();
 	}
+
 </script>
 </body>
 </html>
