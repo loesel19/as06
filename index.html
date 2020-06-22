@@ -362,12 +362,13 @@ $scope.payments = payments;
 	};
 });
 	function saveLoan(){
-	var str = JSON.stringify("loans")
-	localStorage.setItem("savedLoans", str)
+	var str = JSON.stringify(loans);
+	localStorage.setItem("savedLoans", str);
 	}
 	function loadLoan(){
-	loans = JSON.parse(localStorage.getItem("savedLoans"))}
+	loans = JSON.parse(localStorage.getItem("savedLoans"));
 	loadDoc();
+	}
 </script>
 </body>
 </html>
