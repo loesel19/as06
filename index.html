@@ -88,6 +88,8 @@
 							</table>
 							<br />
 							<button id="button" type="button" class="btn btn-primary" ng-click="showPayments()">Re-calculate</button>
+							<button id="button" type="button" class="btn btn-sucess" ng-click="saveLoan()">Re-calculate</button>
+							<button id="button" type="button" class="btn btn-secondary" ng-click="loadLoan()">Re-calculate</button>
 						</div>
 					</div>
 
@@ -359,6 +361,12 @@ var int = temp2 - temp;
 $scope.payments = payments;
 	};
 });
+	function saveLoan(){
+	var str = JSON.stringify("loans")
+	localStorage.setItem("savedLoans", str)
+	}
+	function loadLoan(){
+	loans = JSON.parse(localStorage.getItem("savedLoans"))}
 </script>
 </body>
 </html>
