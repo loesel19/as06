@@ -363,12 +363,15 @@ $scope.payments = payments;
 });
 function saveLoan(){
 		console.log("saved");
+	//save a new JSON object for the current loans array to localstorage, but dont overide the primary loans object 
 	var str = JSON.stringify(loans);
 	localStorage.setItem("savedLoans", str);
 	}
 function loadLoan(){
 		console.log("loaded");
+	//retrieve the JSON object for the saved loans object
 	loans = JSON.parse(localStorage.getItem("savedLoans"));
+	//update the forms
 	loadDoc();
 	}
 
