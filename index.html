@@ -366,7 +366,9 @@ $scope.payments = payments;
 	localStorage.setItem("savedLoans", str);
 	}
 	function loadLoan(){
+		console.log(loans);
 	loans = JSON.parse(localStorage.getItem("savedLoans"));
+		console.log(loans);
 	loadDoc();
 	}
 </script>
